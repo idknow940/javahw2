@@ -1,9 +1,9 @@
 public class Hw2 {
     public static void main(String[] args) {
-        int[] intA = {46, 5, 7, 46, 7};
-        long[] longA = {8465354L, 1564153153L, 1561651L, 48486L};
-        float[] floatA = {65456.6f, 4554.12f, 444.889f};
-        double[] doubleA = {5454564564.5466, 8486468.44, 5645.44d};
+        int[] intA = {46, 5, 7, 46, -7};
+        long[] longA = {-8465354L, 1564153153L, 1561651L, 48486L};
+        float[] floatA = {65456.6f, -4554.12f, 444.889f};
+        double[] doubleA = {5454564564.5466, 8486468.44, -5645.44d};
         // max (idx) //
         int maxI = intA[0];
         long maxL = longA[0];
@@ -140,5 +140,38 @@ public class Hw2 {
             subD -= doubleA[i];
         }
         System.out.println("SUBTRACTION: \n" + "Int: " + subI + " Long: " + subL + " Float: " + subF + " Double: " + subD);
+        // count of positive numbers with negatives //
+        int countPI = 0, countNI = 0;
+        int countPL = 0, countNL = 0;
+        int countPF = 0, countNF = 0;
+        int countPD = 0, countND = 0;
+        for (int i = 0; i < intA.length; i++) {
+            if (intA[i] > 0){
+                ++countPI;
+            }
+        }
+        for (int i = 0; i < longA.length; i++) {
+            if (longA[i] > 0){
+                ++countPL;
+            }
+        }
+        for (int i = 0; i < floatA.length; i++) {
+            if (floatA[i] > 0F){
+                ++countPF;
+            }
+        }
+        for (int i = 0; i < doubleA.length; i++) {
+            if (doubleA[i] > 0){
+                ++countPD;
+            }
+        }
+        countNI = intA.length - countPI;
+        countNL = intA.length - countPL;
+        countNF = intA.length - countPF;
+        countND = intA.length - countPD;
+        System.out.println("COUNT OF POSITIVE NUMBERS: \n" + "Int: " + countPI + " Long:" + countPL
+                + " Float:" + countPF + " Double" + countPD);
+        System.out.println("COUNT OF NEGATIVE NUMBERS: \n" + "Int: " + countNI + " Long:" + countNL
+                + " Float:" + countNF + " Double" + countND);
     }
 }
